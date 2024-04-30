@@ -48,7 +48,7 @@ button {
   min-width: 8rem;
   padding: 10px;
   border-radius: 4px;
-  box-shadow:  1px 1px 4px 1px rgb(76, 76, 76);;
+  box-shadow: 1px 1px 4px 1px rgb(76, 76, 76);
 }
 button > p {
   font-weight: bold;
@@ -60,4 +60,10 @@ button > p {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+}
+
+@media screen and (max-width: 578px) and (min-width: 400px) {
+  .count > button {
+    width: calc(50% - 50px);
+  }
 }

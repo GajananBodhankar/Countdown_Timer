@@ -68,7 +68,20 @@ function Homepage() {
       <button
         onClick={() => {
           if (input) {
-            setStart((prev) => !prev);
+            setStart((prev) => {
+              if (prev) {
+                dispatch((prev) => ({
+                  days: 0,
+                  hours: 0,
+                  minutes: 0,
+                  seconds: 0,
+                }));
+                setInput("");
+                return !prev;
+              } else {
+                return !prev;
+              }
+            });
           } else {
             alert("Please select date");
           }

@@ -1,0 +1,63 @@
+:root {
+  --bgColor: #89aeff;
+}
+
+.mainContainer {
+  background-color: var(--bgColor);
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+input {
+  background: transparent;
+}
+input {
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 0.3rem;
+  color: white;
+}
+input:focus {
+  outline: none;
+}
+h1 {
+  font-size: xx-large;
+  letter-spacing: 2px;
+  text-align: center;
+}
+h1 > span {
+  color: #ad1eff;
+}
+button {
+  background: transparent;
+  border: 1px solid white;
+  padding: 0.3rem;
+  color: white;
+  border-radius: 4px;
+}
+.count > button {
+  background: transparent;
+  border: 1px solid white;
+  padding: 0.3rem;
+  color: white;
+  min-width: 8rem;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow:  1px 1px 4px 1px rgb(76, 76, 76);;
+}
+button > p {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.count {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}

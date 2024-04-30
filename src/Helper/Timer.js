@@ -56,7 +56,48 @@ function setTime(input, dispatch, state, setError) {
     }
 }
 
+function handleStart(input, setStart, setInput, dispatch) {
+    if (input) {
+        setStart((prev) => {
+            if (prev) {
+                dispatch((prev) => ({
+                    days: 0,
+                    hours: 0,
+                    minutes: 0,
+                    seconds: 0,
+                }));
+                setInput("");
+                return !prev;
+            } else {
+                return !prev;
+            }
+        });
+    } else {
+        alert("Please select date");
+    }
+}
+
+function interval(timer, dispatch, start, setStart, state) {
+    timer.current = setInterval(() => {
+        if (
+            start &&
+            (state.days > 0 ||
+                state.hours > 0 ||
+                state.minutes > 0 ||
+                state.seconds > 0)
+        ) {
+            dispatch((prev) => ({
+                ...prev,
+                seconds: prev.seconds - 1
+            }));
+        } else if (start) {
+            setStart(false);
+        }
+    }, 1000);
+}
 export {
     Timer,
-    setTime
+    setTime,
+    handleStart,
+    interval
 }

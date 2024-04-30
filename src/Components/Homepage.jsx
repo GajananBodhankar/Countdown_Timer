@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer, useRef, useState } from "react";
 import "../App.css";
-import { initialState, reducerAction } from "../Helper/Datereducer";
-import { Timer, setTime } from "../Helper/Timer";
+import { Timer, handleStart, interval, setTime } from "../Helper/Timer";
 function Homepage() {
   const [date, setDate] = useState(
     `${new Date().getFullYear()}-${
@@ -26,19 +25,7 @@ function Homepage() {
   });
   const [input, setInput] = useState("");
   useEffect(() => {
-    timer.current = setInterval(() => {
-      if (
-        start &&
-        (state.days > 0 ||
-          state.hours > 0 ||
-          state.minutes > 0 ||
-          state.seconds > 0)
-      ) {
-        dispatch((prev) => ({ ...prev, seconds: prev.seconds - 1 }));
-      } else if (start) {
-        setStart(false);
-      }
-    }, 1000);
+    interval(timer, dispatch, start, setStart, state);
     return () => {
       clearInterval(timer.current);
     };
@@ -67,24 +54,7 @@ function Homepage() {
       />
       <button
         onClick={() => {
-          if (input) {
-            setStart((prev) => {
-              if (prev) {
-                dispatch((prev) => ({
-                  days: 0,
-                  hours: 0,
-                  minutes: 0,
-                  seconds: 0,
-                }));
-                setInput("");
-                return !prev;
-              } else {
-                return !prev;
-              }
-            });
-          } else {
-            alert("Please select date");
-          }
+          handleStart(input, setStart, setInput, dispatch);
         }}
       >
         {!start ? "Start Timer" : "Cancel Timer"}

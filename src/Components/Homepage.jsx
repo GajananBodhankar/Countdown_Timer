@@ -52,6 +52,7 @@ function Homepage() {
           setInput(e.target.value);
         }}
       />
+      
       <button
         onClick={() => {
           handleStart(input, setStart, setInput, dispatch);

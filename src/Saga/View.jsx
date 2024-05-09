@@ -11,13 +11,13 @@ function View() {
   return (
     <div>
       hello
-      <p
+      <button
         onClick={() => {
           dispatch(pending());
         }}
       >
         hello
-      </p>
+      </button>
     </div>
   );
 }
